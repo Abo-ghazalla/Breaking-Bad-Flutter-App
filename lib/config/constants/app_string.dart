@@ -1,0 +1,1 @@
+const normalErrorMsg="Error! please, try again";
