@@ -1,5 +1,4 @@
-import 'package:breaking_bad_app/view/screens/home/home_screen.dart';
-import 'package:flutter/material.dart';
+part of 'imports.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {

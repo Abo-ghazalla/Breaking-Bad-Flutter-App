@@ -1,4 +1,4 @@
-import 'package:breaking_bad_app/config/app_router.dart';
+import 'package:breaking_bad_app/config/app_router/imports.dart';
 import 'package:breaking_bad_app/config/constants/resources.dart' as constants;
 import 'package:breaking_bad_app/locator.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,4 @@
-import 'package:breaking_bad_app/view/screens/home/cubit/home_cubit.dart';
+import 'package:breaking_bad_app/view/screens/home/cubit/imports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
