@@ -11,11 +11,14 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> allCharacters() async {
     emit(HomeLoading());
-    try {
-      final allChars = await getIt.get<CharactersRepos>().getAllCharacters();
-      emit(HomeData(allChars));
-    } catch (_) {
-      emit(HomeError());
-    }
+    final allChars = await getIt.get<CharactersRepos>().getAllCharacters();
+    allChars.fold(
+      (allChars) => emit(HomeData(allChars)),
+      (e) => emit(HomeError(e.msg)),
+    );
+    // emit(HomeData(allChars));
+    // } catch (_) {
+    //   emit(HomeError());
+    // }
   }
 }

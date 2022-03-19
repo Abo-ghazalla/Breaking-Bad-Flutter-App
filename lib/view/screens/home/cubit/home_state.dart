@@ -14,7 +14,11 @@ class HomeLoading extends HomeState {}
 class HomeData extends HomeState {
   final List<Character> characters;
 
-  HomeData(this.characters);
+  const HomeData(this.characters);
 }
 
-class HomeError extends HomeState {}
+class HomeError extends HomeState {
+  final String msg;
+
+  const HomeError(this.msg);
+}

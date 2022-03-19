@@ -36,10 +36,11 @@ class HomeScreen extends StatelessWidget {
             }
           },
           listenWhen: (prev, current) => current is HomeError,
-          listener: (_, __) {
+          listener: (_, c) {
+            final error = (c as HomeError).msg;
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
-            ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text(constants.normalErrorMsg)));
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(error)));
           },
         ),
       ),
