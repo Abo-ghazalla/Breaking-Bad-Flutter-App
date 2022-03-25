@@ -1,18 +1,20 @@
-class Character {
-  final int id;
-  final String name;
-  final String birthday;
-  final String img;
-  final String nickname;
-  final List<dynamic> appearance;
+import 'package:breaking_bad_app/models/base_models/base_model.dart';
+
+class Character extends BaseModel {
+  final int? id;
+  final String? name;
+  final String? birthday;
+  final String? img;
+  final String? nickname;
+  final List<dynamic>? appearance;
 
   Character({
-    required this.id,
-    required this.name,
-    required this.birthday,
-    required this.img,
-    required this.nickname,
-    required this.appearance,
+    this.id,
+    this.name,
+    this.birthday,
+    this.img,
+    this.nickname,
+    this.appearance,
   });
 
   factory Character.fromJson(Map<String, dynamic> json) => Character(
@@ -24,6 +26,7 @@ class Character {
         appearance: json["appearance"],
       );
 
+  @override
   Map<String, dynamic> toJson() => {
         "char_id": id,
         "name": name,
@@ -32,4 +35,9 @@ class Character {
         "nickname": nickname,
         "appearance": appearance,
       };
+
+  @override
+  fromJson(Map<String, dynamic> json) {
+    return Character.fromJson(json);
+  }
 }

@@ -1,17 +1,16 @@
 part of 'imports.dart';
+
 class CharactersRepos {
   final APIService _service;
   CharactersRepos(this._service);
 
   Future<Either<List<Character>, AppError>> getAllCharacters() async {
-    final hasConnection = await hasNetworkConnection();
-    if (!hasConnection) {
-      return Right(AppError("Internet Error"));
+    final res = await _service.get(path: 'characters', model: Character());
+
+    if (res.isLeft()) {
+      return Left(List<Character>.from((res as Left).value));
+    } else {
+      return res as Right<List<Character>, AppError>;
     }
-    final res = await _service.get(path: 'characters');
-    final data = res.data;
-    return Left(List<Map<String, dynamic>>.from(data)
-        .map((e) => Character.fromJson(e))
-        .toList());
   }
 }

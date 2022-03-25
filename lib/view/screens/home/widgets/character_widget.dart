@@ -17,7 +17,7 @@ class CharacterWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
                 child: CachedNetworkImage(
-                  imageUrl: character.img,
+                  imageUrl: character.img!,
                   fit: BoxFit.cover,
                   placeholder: (_, __) =>
                       const Center(child: CircularProgressIndicator()),
@@ -31,7 +31,7 @@ class CharacterWidget extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(8),
                 child: Text(
-                  character.nickname,
+                  character.nickname!,
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.titleSmall,
