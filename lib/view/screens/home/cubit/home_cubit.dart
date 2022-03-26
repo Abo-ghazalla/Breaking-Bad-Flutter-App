@@ -6,9 +6,7 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> allCharacters() async {
     emit(HomeLoading());
     final allChars = await getIt.get<CharactersRepos>().getAllCharacters();
-    final g = BaseResponse<Cat>.fromJson(data, Cat());
-
-    final re = g.data as Right;
+// final g= BaseResponse<Cat>.fromJson(data, Cat());
 
     allChars.fold(
       (allChars) => emit(HomeData(allChars)),
@@ -44,4 +42,5 @@ final list = [
     "categoryId": 8,
     "languageId": 1,
   }
+  
 ];
